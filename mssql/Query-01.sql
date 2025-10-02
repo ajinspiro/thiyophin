@@ -1,0 +1,12 @@
+-- create database TestDB;
+-- use TestDB;
+-- create table Test (Id int primary key, Name varchar(100), BankBalance decimal);
+-- insert into Test values (100, 'Theofin', 4444444);
+-- select * from Test;
+-- insert into Test values (102, 'Arun', 4444444);
+-- insert into Test (Id, BankBalance) values (103, 444444)
+-- insert into Test (Id, Name) values(104, 'Arjun');
+-- update  Test set Name='Thiyophin' where Name='Thiyofin'
+-- delete from test where Name is NULL or BankBalance is null
+-- delete from test where id in (103,104)
+
