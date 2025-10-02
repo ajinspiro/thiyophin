@@ -1,4 +1,8 @@
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=31eq#!EQDA" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=31eq#EQDA" --name "mssql" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+
+docker pull dbgate/dbgate 
+## if you  get a error like - Error response from daemon: authentication required - access token has insufficient scopes, 
+## then just logout and login again to docker. (docker logout and docker login)
 
 docker run -d --name dbgate-instance --restart always -p 3000:3000 dbgate/dbgate
 

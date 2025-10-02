@@ -10,3 +10,13 @@
 -- delete from test where Name is NULL or BankBalance is null
 -- delete from test where id in (103,104)
 
+
+-- commands to create contact management system
+-- create database MyContacts;
+-- use MyContacts;
+-- create table Contacts (Id int identity(1,1) primary key, Name varchar(100), [Family, Workspace] varchar(100),ContactNumber varchar(12));
+-- insert into Contacts values ('Thiyophin','Family',8921362009);
+-- insert into Contacts values ('Arun','Family',9921362009);
+-- insert into Contacts values ('Basha','Workspace',9991362009);
+-- update Contacts set Name='Basha Raj' where Name='Basha';
+-- select * from Contacts;
