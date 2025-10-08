@@ -21,13 +21,16 @@ Insert data of following employees into `Employees` table.
  - Emily Davis, GlobalWorks, 18-06-2004, Not Indian, 97000.00
 
 ## Task 03
-Display all employees who has salary higher than 90,000.
+ - Display all details of all employees.
+ - Display name and company of all employees.
+ - Display name, company and salary of all employees who has salary higher than 90,000.
+ - Display names of all employees who has joined their company before 2020.
 
 ## Task 04
-Display names of all employees who has joined their company before 2020.
+Create table `Companies` with a single column `Name` for storing name of companies. Choose correct data type.
 
 ## Task 05
-Create table `Companies` with a single column `Name` for storing name of companies. Choose correct data type.
+Find out the name of companies from Task 02 and insert them into `Companies` table in a single statement.
 
 ## Task 06
 Add a new column `Id` to `Companies` table. Choose correct data type.
@@ -36,7 +39,4 @@ Add a new column `Id` to `Companies` table. Choose correct data type.
 Add primary key constraint to `Id` column of `Companies` table.
 
 ## Task 08
-Add identity constraint to `Id` column of `Companies` table. Seed value must be 2 and starting value must be 100.
-
-## Task 09
-Find out the name of companies from Task 02 and insert them into `Companies` table in a single statement.
+Add identity constraint to `Id` column of `Companies` table. Seed value must be `2` and starting value must be `100`.
