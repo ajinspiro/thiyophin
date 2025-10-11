@@ -8,6 +8,7 @@ Create table `Employees` with following columns. Find out the correct data types
  - JoinedDate (date)
  - IsIndian (boolean)
  - Salary (money)
+Hint: The decimal data type requires the number of decimal points to support mentioned explicitly. Like decimal(8,2).
 
 ## Task 02
 Insert data of following employees into `Employees` table.
@@ -36,7 +37,6 @@ Find out the name of companies from Task 02 and insert them into `Companies` tab
 Add a new column `Id` to `Companies` table. Choose correct data type.
 
 ## Task 07
-Add primary key constraint to `Id` column of `Companies` table.
+ - Add `NOT NULL` constraint to `Id` column of `Companies` table.
+ - Add primary key constraint to `Id` column of `Companies` table.
 
-## Task 08
-Add identity constraint to `Id` column of `Companies` table. Seed value must be `2` and starting value must be `100`.
