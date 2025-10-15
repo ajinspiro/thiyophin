@@ -1,0 +1,9 @@
+SELECT DISTINCT Company FROM Employees;
+SELECT * FROM Employees;
+SELECT * FROM Employees WHERE Salary BETWEEN 80000 AND 90000;
+SELECT * FROM Employees WHERE Name LIKE 'A%';
+SELECT * FROM Employees WHERE Name LIKE '%n';
+SELECT * FROM Employees ORDER BY Salary;
+SELECT * FROM Employees ORDER BY Salary ASC;
+SELECT * FROM Employees ORDER BY Salary DESC;
+SELECT TOP 1 * FROM Employees ORDER BY Salary DESC;
