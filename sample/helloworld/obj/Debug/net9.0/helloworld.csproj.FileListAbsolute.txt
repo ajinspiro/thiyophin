@@ -1,0 +1,15 @@
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/bin/Debug/net9.0/helloworld
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/bin/Debug/net9.0/helloworld.deps.json
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/bin/Debug/net9.0/helloworld.runtimeconfig.json
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/bin/Debug/net9.0/helloworld.dll
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/bin/Debug/net9.0/helloworld.pdb
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.GeneratedMSBuildEditorConfig.editorconfig
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.AssemblyInfoInputs.cache
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.AssemblyInfo.cs
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.csproj.CoreCompileInputs.cache
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.sourcelink.json
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.dll
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/refint/helloworld.dll
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.pdb
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/helloworld.genruntimeconfig.cache
+/home/thiyophin/personal_workspace/thiyophin/dotnet/helloworld/obj/Debug/net9.0/ref/helloworld.dll

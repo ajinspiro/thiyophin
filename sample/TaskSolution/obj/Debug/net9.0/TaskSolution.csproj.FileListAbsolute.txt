@@ -1,0 +1,15 @@
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/bin/Debug/net9.0/TaskSolution
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/bin/Debug/net9.0/TaskSolution.deps.json
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/bin/Debug/net9.0/TaskSolution.runtimeconfig.json
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/bin/Debug/net9.0/TaskSolution.dll
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/bin/Debug/net9.0/TaskSolution.pdb
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.GeneratedMSBuildEditorConfig.editorconfig
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.AssemblyInfoInputs.cache
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.AssemblyInfo.cs
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.csproj.CoreCompileInputs.cache
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.sourcelink.json
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.dll
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/refint/TaskSolution.dll
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.pdb
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/TaskSolution.genruntimeconfig.cache
+/home/thiyophin/personal_workspace/thiyophin/dotnet/TaskSolution/obj/Debug/net9.0/ref/TaskSolution.dll
