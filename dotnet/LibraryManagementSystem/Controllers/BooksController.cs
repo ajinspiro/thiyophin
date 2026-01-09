@@ -16,29 +16,29 @@ public class BooksController : Controller
     // GET /Books
     public IActionResult Index()
     {
-        return Json(_context.Books.ToList());
+        return View(_context.Books.ToList());
     }
-
-    // POST /Books/Add
     [HttpPost]
-    public IActionResult Add([FromBody] Book book)
+    public IActionResult Search(string search)
     {
-        book.AddedOn = DateTime.Now;
-        book.IsCheckedOut = false;
-        _context.Books.Add(book);
-        _context.SaveChanges();
-        return Ok(book);
+        var searchResults = _context.Books.Where(x => x.Name.Contains(search)).ToList();
+        return View(searchResults);
+    }
+    public IActionResult Add()
+    {
+        return View();
+    }
+    [HttpPost]
+    public IActionResult Add(string BookName, string ISBN)
+    {
+        Book obj = new Book();
+        obj.Name = BookName;
+        obj.ISBN = ISBN;
+        obj.AddedOn = DateTime.Now;
+        obj.IsCheckedOut = true;
+        _context.Books.Add(obj);
+        int result = _context.SaveChanges();
+        return Redirect("/Books");
     }
 
-    // GET /Books/Delete/3
-    public IActionResult Delete(int id)
-    {
-        var book = _context.Books.Find(id);
-        if (book == null || book.IsCheckedOut)
-            return BadRequest("Cannot delete");
-
-        _context.Books.Remove(book);
-        _context.SaveChanges();
-        return Ok();
-    }
 }

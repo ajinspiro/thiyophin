@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="/css/site.css">
+</head>
+
+<body>
+    <header>
+        <h1>Library</h1>
+        <nav>
+            <h3>Members</h3>
+            <h3>Books</h3>
+            <h3>Checkouts</h3>
+        </nav>
+    </header>
+    <div class="form-body">
+        <div class="form-label">
+            <h1>Add Book</h1>
+        </div>
+        <div class="form-data">
+            <form method="post" action="/Books/Add">
+                <label for="bookname">Name</label>
+                <input type="text" id="bookname" name="BookName" />
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" name="ISBN" />
+                <input type="submit" value="Add" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

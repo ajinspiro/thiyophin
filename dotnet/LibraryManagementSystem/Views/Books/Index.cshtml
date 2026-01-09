@@ -1,15 +1,12 @@
-@using LibraryManagementSystem.Models
-@model List<Member>
+@using System.Diagnostics.Eventing.Reader
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library System - Members</title>
+    <title>Library System - Books</title>
     <link rel="stylesheet" href="/css/site.css">
 </head>
-
 <body>
     <header>
         <h1>Library</h1>
@@ -21,17 +18,17 @@
     </header>
     <div class="search-bar">
         <div class="search-bar-label">
-            Members
+            Books
         </div>
         <div class="search-bar-input">
-            <form method="post" action="/Members/Search">
+            <form method="post" action="/Books/Search">
                 <input type="text" name="search" placeholder="Name">
                 <button id="clear-btn" type="reset">Clear</button>
                 <input type="submit" value="Search">
             </form>
-        </div>
+     </div>
         <div class="search-bar-add-btn">
-            <a href="/members/add"><button>Add</button></a>
+            <a href="/books/add"><button>Add</button></a>
         </div>
     </div>
     <div class="members-table">
@@ -39,17 +36,23 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Phone</th>
-                    <th>Joined on</th>
+                    <th>ISBN</th>
+                    <th>Added on</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var x in Model)
+              @foreach (var x in Model)
                 {
                     <tr>
                         <td>@x.Name</td>
-                        <td>@x.Phone</td>
-                        <td>@x.JoinedOn</td>
+                        <td>@x.ISBN</td>
+                        <td>@x.AddedOn</td>
+                        @if (@x.IsCheckedOut){
+                            <td style="color: green;">In</td>
+                        }else{
+                            <td style="color: red;">Out</td>
+                        }    
                     </tr>
 
                 }
@@ -57,5 +60,4 @@
         </table>
     </div>
 </body>
-
 </html>
