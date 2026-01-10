@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace LibraryManagementSystem.Controllers;
-
-public class CheckoutsController : Controller
+namespace LibraryManagementSystem.Controllers
 {
-    // GET /Checkouts
-    public IActionResult Index()
+    public class CheckoutsController : Controller
     {
-        return Content("Checkouts coming next");
+        // GET: CheckoutsController
+        public ActionResult Index()
+        {
+            return View();
+        }
+
     }
 }
