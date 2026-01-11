@@ -19,14 +19,14 @@
     <h1>Checkout</h1>
     <div class="search-bar">
         <div class="search-bar-input">
-            <form method="post" action="/Members/Search">
+            <form id="findMember">
                 <input type="text" name="search" placeholder="Search user">
                 <button id="clear-btn" type="reset">Clear</button>
                 <input type="submit" value="Search">
             </form>
         </div>
         <div class="search-bar-input">
-            <form method="post" action="/Books/Search">
+            <form id="findBook">
                 <input type="text" name="search" placeholder="Search book">
                 <button id="clear-btn" type="reset">Clear</button>
                 <input type="submit" value="Search">
@@ -44,13 +44,9 @@
                     <th>Book name</th>
                 </tr>
             </thead>
-            <tbody>
-                    <tr>
-                        <td>x.Name</td>
-                        <td>x.Book</td>
-                    </tr>
-            </tbody>
+            <tbody id="checkoutTableBody"></tbody>
         </table>
     </div>
+    <script src="/js/checkouts.js"></script>
 </body>
 </html>
