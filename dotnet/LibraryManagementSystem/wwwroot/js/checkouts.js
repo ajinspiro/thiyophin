@@ -1,3 +1,5 @@
+console.log("JS FILE LOADED");
+
 document.addEventListener("DOMContentLoaded", function () {
     loadMembers();
     loadBooks();
@@ -13,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const query = this.search.value;
         searchBooks(query);
     });
+
+    document.getElementById("checkoutBtn").addEventListener("click", createCheckout);
 });
 
 let members = [];
@@ -42,6 +46,7 @@ function searchMembers(query) {
         .then(data => {
             members = data;
             renderTable();
+            checkEnableCheckout();
         });
 }
 
@@ -51,6 +56,7 @@ function searchBooks(query) {
         .then(data => {
             books = data;
             renderTable();
+            checkEnableCheckout();
         });
 }
 
@@ -73,4 +79,49 @@ function renderTable() {
 
         tbody.innerHTML += row;
     }
+}
+
+function checkEnableCheckout() {
+    console.log("Members:", members.length);
+    console.log("Books:", books.length);
+
+    const btn = document.getElementById("checkoutBtn");
+
+    if (!btn) {
+        console.error("checkoutBtn not found in DOM");
+        return;
+    }
+
+    if (members.length === 1 && books.length === 1) {
+        btn.disabled = false;
+        console.log("Checkout ENABLED");
+    } else {
+        btn.disabled = true;
+        console.log("Checkout DISABLED");
+    }
+}
+
+function createCheckout() {
+    if (members.length !== 1 || books.length !== 1) return;
+
+    const memberId = members[0].id;
+    const bookId = books[0].id;
+
+    fetch('/Checkouts/CreateCheckout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `memberId=${memberId}&bookId=${bookId}`
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert("Checkout successful!");
+            members = [];
+            books = [];
+            renderTable();
+            document.getElementById("checkoutBtn").disabled = true;
+        }
+    });
 }

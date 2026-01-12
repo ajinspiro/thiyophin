@@ -1,4 +1,5 @@
 using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagementSystem.Controllers
@@ -53,5 +54,21 @@ namespace LibraryManagementSystem.Controllers
 
             return Json(books);
         }
+        [HttpPost]
+        public IActionResult CreateCheckout(int memberId, int bookId)
+        {
+            var checkout = new Checkout
+            {
+                MemberId = memberId,
+                BookId = bookId,
+                CheckoutDate = DateTime.Now
+            };
+
+            _context.Checkouts.Add(checkout);
+            _context.SaveChanges();
+
+            return Json(new { success = true });
+        }
+
    }
 }

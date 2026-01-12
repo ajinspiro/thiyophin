@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <h1><a href="/">Library</a></h1>
+        <nav>
+            <h3><a href="/Members">Members</a></h3>
+            <h3><a href="/Books">Books</a></h3>
+            <h3><a href="/Checkouts">Checkouts</a></h3>
+        </nav>
+    </header>
+    <!-- PAGE CONTENT GOES HERE -->
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>
