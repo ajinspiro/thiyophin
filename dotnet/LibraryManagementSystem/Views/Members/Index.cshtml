@@ -1,4 +1,5 @@
 @using LibraryManagementSystem.Models
+@using System.ComponentModel.DataAnnotations
 @model List<Member>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,36 +18,47 @@
         </div>
         <div class="search-bar-input">
             <form method="post" action="/Members/Search">
-                <input type="text" name="search" placeholder="Name">
-                <button id="clear-btn" type="reset">Clear</button>
-                <input type="submit" value="Search">
+                <input type="text" name="search" placeholder="Name" value="@ViewBag.Search">
+                <a href="/Members" class="btn">Clear</a>
+                <input type="submit" class="btn" value="Search">
             </form>
         </div>
         <div class="search-bar-add-btn">
-            <a href="/members/add"><button>Add</button></a>
+            <a href="/members/add" class="btn">Add</a>
         </div>
     </div>
     <div class="members-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Joined on</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var x in Model)
-                {
-                    <tr>
-                        <td>@x.Name</td>
-                        <td>@x.Phone</td>
-                        <td>@x.JoinedOn</td>
-                    </tr>
+        @if (Model.Count > 0)
+        {
+            <div id="members-table-div">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Joined on</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.Name</td>
+                                <td>@x.Phone</td>
+                                <td>@x.JoinedOn</td>
+                            </tr>
 
-                }
-            </tbody>
-        </table>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div id="table-data-msg">
+                <h1>No members are available currently</h1>
+            </div>
+        }
     </div>
 </body>
 

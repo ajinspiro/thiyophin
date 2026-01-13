@@ -40,6 +40,7 @@ public class MembersController : Controller
     public IActionResult Search(string search)
     {
         var searchResults = _context.Members.Where(x => x.Name.Contains(search)).ToList();
+        ViewBag.Search = search; // store the search value
         return View(searchResults);
     }
 }
