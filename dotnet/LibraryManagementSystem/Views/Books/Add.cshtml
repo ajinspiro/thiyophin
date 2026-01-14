@@ -16,9 +16,11 @@
         <div class="form-data">
             <form method="post" action="/Books/Add">
                 <label for="bookname">Name</label>
-                <input type="text" id="bookname" name="BookName" />
+                <input type="text" id="bookname" name="BookName" pattern="[A-Za-z ]+"
+                    title="Only letters and spaces allowed" required />
                 <label for="isbn">ISBN</label>
-                <input type="text" id="isbn" name="ISBN" />
+                <input type="text" id="isbn" name="ISBN" pattern="[0-9]{3,10}" title="Enter a valid ISBN number"
+                    required />
                 <input type="submit" value="Add" />
             </form>
         </div>

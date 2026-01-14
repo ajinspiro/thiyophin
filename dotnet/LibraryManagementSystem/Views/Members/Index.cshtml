@@ -19,12 +19,12 @@
         <div class="search-bar-input">
             <form method="post" action="/Members/Search">
                 <input type="text" name="search" placeholder="Name" value="@ViewBag.Search">
-                <a href="/Members" class="btn">Clear</a>
-                <input type="submit" class="btn" value="Search">
+                <a href="/Members"><input type="button" value="Clear" id="clear-btn"></a>
+                <input type="submit" value="Search">
             </form>
         </div>
         <div class="search-bar-add-btn">
-            <a href="/members/add" class="btn">Add</a>
+            <a href="/members/add"><button>Add</button></a>
         </div>
     </div>
     <div class="members-table">

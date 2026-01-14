@@ -22,6 +22,7 @@ public class BooksController : Controller
     public IActionResult Search(string search)
     {
         var searchResults = _context.Books.Where(x => x.Name.Contains(search)).ToList();
+        ViewBag.Search = search; // store the search value
         return View(searchResults);
     }
     public IActionResult Add()

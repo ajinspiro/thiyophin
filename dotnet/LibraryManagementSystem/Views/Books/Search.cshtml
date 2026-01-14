@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library System - Books</title>
     <link rel="stylesheet" href="/css/site.css">
 </head>
+
 <body>
     <div class="search-bar">
         <div class="search-bar-label">
@@ -13,38 +15,57 @@
         </div>
         <div class="search-bar-input">
             <form method="post" action="/Books/Search">
-                <input type="text" name="search" placeholder="Name">
-                <button id="clear-btn" type="reset">Clear</button>
+                <input type="text" name="search" placeholder="Name" value="@ViewBag.Search">
+                <a href="/Books"><input type="button" value="Clear" id="clear-btn"></a>
                 <input type="submit" value="Search">
             </form>
-     </div>
+        </div>
         <div class="search-bar-add-btn">
             <a href="/books/add"><button>Add</button></a>
         </div>
     </div>
     <div class="members-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>ISBN</th>
-                    <th>Added on</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-              @foreach (var x in Model)
-                {
-                    <tr>
-                        <td>@x.Name</td>
-                        <td>@x.ISBN</td>
-                        <td>@x.AddedOn</td>
-                        <td>@x.IsCheckedOut</td>
-                    </tr>
+        @if (Model.Count > 0)
+        {
+            <div id="members-table-div">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ISBN</th>
+                            <th>Added on</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.Name</td>
+                                <td>@x.ISBN</td>
+                                <td>@x.AddedOn</td>
+                                @if (@x.IsCheckedOut)
+                                {
+                                    <td style="color: green;">In</td>
+                                }
+                                else
+                                {
+                                    <td style="color: red;">Out</td>
+                                }
+                            </tr>
 
-                }
-            </tbody>
-        </table>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div id="table-data-msg">
+                <h1>No book found matching the search criteria</h1>
+            </div>
+        }
     </div>
 </body>
+
 </html>

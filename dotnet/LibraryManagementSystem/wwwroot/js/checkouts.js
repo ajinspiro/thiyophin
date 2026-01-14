@@ -1,5 +1,8 @@
 console.log("JS FILE LOADED");
 
+let isMemberSearch = false;
+let isBookSearch = false;
+
 document.addEventListener("DOMContentLoaded", function () {
     loadMembers();
     loadBooks();
@@ -28,6 +31,7 @@ function loadMembers() {
         .then(data => {
             members = data;
             renderTable();
+            updateMessages();
         });
 }
 
@@ -37,10 +41,12 @@ function loadBooks() {
         .then(data => {
             books = data;
             renderTable();
+            updateMessages();
         });
 }
 
 function searchMembers(query) {
+        isMemberSearch = true;
     fetch(`/Checkouts/SearchMembers?search=${encodeURIComponent(query)}`)
         .then(res => res.json())
         .then(data => {
@@ -51,6 +57,7 @@ function searchMembers(query) {
 }
 
 function searchBooks(query) {
+        isBookSearch = true;
     fetch(`/Checkouts/SearchBooks?search=${encodeURIComponent(query)}`)
         .then(res => res.json())
         .then(data => {
@@ -124,4 +131,28 @@ function createCheckout() {
             document.getElementById("checkoutBtn").disabled = true;
         }
     });
+}
+
+
+function updateMessages() {
+    const memberMsg = document.getElementById("memberMsg");
+    const bookMsg = document.getElementById("bookMsg");
+
+    // Members
+    if (members.length === 0) {
+        memberMsg.textContent = isMemberSearch
+            ? "No member found matching the search criteria"
+            : "No members available currently";
+    } else {
+        memberMsg.textContent = "";
+    }
+
+    // Books
+    if (books.length === 0) {
+        bookMsg.textContent = isBookSearch
+            ? "No book found matching the search criteria"
+            : "No books available currently";
+    } else {
+        bookMsg.textContent = "";
+    }
 }
