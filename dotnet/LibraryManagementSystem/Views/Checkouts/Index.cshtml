@@ -14,14 +14,14 @@
     <div class="search-bar">
         <div class="search-bar-input">
             <form id="findMember">
-                <input type="text" name="search" placeholder="Search user">
+                <input type="text" name="search" placeholder="Search user" required>
                 <button id="clear-btn" type="reset">Clear</button>
                 <input type="submit" value="Search">
             </form>
         </div>
         <div class="search-bar-input">
             <form id="findBook">
-                <input type="text" name="search" placeholder="Search book">
+                <input type="text" name="search" placeholder="Search book" required>
                 <button id="clear-btn" type="reset">Clear</button>
                 <input type="submit" value="Search">
             </form>
@@ -31,18 +31,37 @@
         </div>
     </div>
     <div class="members-table">
-    <p id="memberMsg" class="empty-msg"></p>
-    <p id="bookMsg" class="empty-msg"></p>
-        <table>
-            <thead>
-                <tr>
-                    <th>User name</th>
-                    <th>Book name</th>
-                </tr>
-            </thead>
-            <tbody id="checkoutTableBody"></tbody>
-        </table>
+
+        <!-- Members Section -->
+        <div id="memberSection">
+            <h1 id="memberMsg" class="empty-msg"></h1>
+            <table id="memberTable">
+                <thead>
+                    <tr>
+                        <th>User name</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTableBody"></tbody>
+            </table>
+        </div>
+
+
+        <!-- Books Section -->
+        <div id="bookSection">
+            <h1 id="bookMsg" class="empty-msg"></h1>
+            <table id="bookTable">
+                <thead>
+                    <tr>
+                        <th>Book name</th>
+                    </tr>
+                </thead>
+                <tbody id="bookTableBody"></tbody>
+            </table>
+        </div>
+
+
     </div>
+
     <script src="/js/checkouts.js"></script>
 </body>
 

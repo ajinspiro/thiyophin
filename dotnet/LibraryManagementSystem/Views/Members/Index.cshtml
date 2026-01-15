@@ -18,7 +18,7 @@
         </div>
         <div class="search-bar-input">
             <form method="post" action="/Members/Search">
-                <input type="text" name="search" placeholder="Name" value="@ViewBag.Search">
+                <input type="text" name="search" placeholder="Name" value="@ViewBag.Search" required>
                 <a href="/Members"><input type="button" value="Clear" id="clear-btn"></a>
                 <input type="submit" value="Search">
             </form>

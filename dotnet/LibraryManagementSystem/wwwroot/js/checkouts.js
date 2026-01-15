@@ -68,25 +68,25 @@ function searchBooks(query) {
 }
 
 function renderTable() {
-    const tbody = document.getElementById("checkoutTableBody");
-    tbody.innerHTML = "";
+    const memberBody = document.getElementById("memberTableBody");
+    const bookBody = document.getElementById("bookTableBody");
 
-    const maxLength = Math.max(members.length, books.length);
+    memberBody.innerHTML = "";
+    bookBody.innerHTML = "";
 
-    for (let i = 0; i < maxLength; i++) {
-        const memberName = members[i] ? members[i].name : "";
-        const bookName = books[i] ? books[i].name : "";
+    members.forEach(m => {
+        const row = `<tr><td>${m.name}</td></tr>`;
+        memberBody.innerHTML += row;
+    });
 
-        const row = `
-            <tr>
-                <td>${memberName}</td>
-                <td>${bookName}</td>
-            </tr>
-        `;
+    books.forEach(b => {
+        const row = `<tr><td>${b.name}</td></tr>`;
+        bookBody.innerHTML += row;
+    });
 
-        tbody.innerHTML += row;
-    }
+    updateMessages();
 }
+
 
 function checkEnableCheckout() {
     console.log("Members:", members.length);
@@ -138,21 +138,28 @@ function updateMessages() {
     const memberMsg = document.getElementById("memberMsg");
     const bookMsg = document.getElementById("bookMsg");
 
-    // Members
+    const memberTable = document.getElementById("memberTable");
+    const bookTable = document.getElementById("bookTable");
+
+    // MEMBERS
     if (members.length === 0) {
+        memberTable.style.display = "none";
         memberMsg.textContent = isMemberSearch
-            ? "No member found matching the search criteria"
+            ? "No members available for this result"
             : "No members available currently";
     } else {
+        memberTable.style.display = "table";
         memberMsg.textContent = "";
     }
 
-    // Books
+    // BOOKS
     if (books.length === 0) {
+        bookTable.style.display = "none";
         bookMsg.textContent = isBookSearch
-            ? "No book found matching the search criteria"
+            ? "No books available for this result"
             : "No books available currently";
     } else {
+        bookTable.style.display = "table";
         bookMsg.textContent = "";
     }
 }

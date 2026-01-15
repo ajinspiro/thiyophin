@@ -26,15 +26,29 @@ public class MembersController : Controller
     [HttpPost]
     public IActionResult Add(string Name, string Email, string Phone)
     {
-        Member obj = new Member();
-        obj.Name = Name;
-        obj.Email = Email;
-        obj.Phone = Phone;
-        obj.JoinedOn = DateTime.Now;
+        // Check if email already exists
+        bool emailExists = _context.Members.Any(m => m.Email == Email);
+
+        if (emailExists)
+        {
+            ViewBag.Error = "This email is already registered.";
+            return View(); // Return to the same Add view with error
+        }
+
+        Member obj = new Member
+        {
+            Name = Name,
+            Email = Email,
+            Phone = Phone,
+            JoinedOn = DateTime.Now
+        };
+
         _context.Members.Add(obj);
-        int result = _context.SaveChanges();
+        _context.SaveChanges();
+
         return Redirect("/");
     }
+
 
     [HttpPost]
     public IActionResult Search(string search)

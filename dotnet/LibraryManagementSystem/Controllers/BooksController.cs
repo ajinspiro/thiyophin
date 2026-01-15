@@ -32,6 +32,12 @@ public class BooksController : Controller
     [HttpPost]
     public IActionResult Add(string BookName, string ISBN)
     {
+        bool isbnExists = _context.Books.Any(b => b.ISBN == ISBN);
+        if (isbnExists)
+        {
+            ViewBag.Error = "This isbn is already registered.";
+            return View(); // Return to the same Add view with error
+        }
         Book obj = new Book();
         obj.Name = BookName;
         obj.ISBN = ISBN;
