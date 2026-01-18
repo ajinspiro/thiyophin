@@ -163,3 +163,17 @@ function updateMessages() {
         bookMsg.textContent = "";
     }
 }
+function clearMembers() {
+    isMemberSearch = false;
+    loadMembers();
+    document.querySelector("#findMember input[name='search']").value = "";
+    checkEnableCheckout();
+}
+
+function clearBooks() {
+    isBookSearch = false;
+    loadBooks();
+    document.querySelector("#findBook input[name='search']").value = "";
+    checkEnableCheckout();
+}
+

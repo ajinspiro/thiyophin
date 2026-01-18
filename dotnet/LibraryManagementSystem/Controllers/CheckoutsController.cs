@@ -1,6 +1,7 @@
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Controllers
 {
@@ -15,44 +16,57 @@ namespace LibraryManagementSystem.Controllers
         // GET: CheckoutsController
         public ActionResult Index()
         {
-            return View();
+            var checkouts = _context.Checkouts
+                .Include(c => c.Book)
+                .Include(c => c.Member)
+                .Where(c => c.ReturnDate == null)
+                .ToList();
+
+            return View(checkouts);
         }
         [HttpGet]
         public IActionResult GetMembers()
         {
             var members = _context.Members
-                .Select(m => new { m.Id, m.Name})
+                .Select(m => new { m.Id, m.Name })
                 .ToList();
-            
+
             return Json(members);
         }
         [HttpGet]
         public IActionResult GetBooks()
         {
             var books = _context.Books
-                .Select(b => new{b.Id, b.Name})
+                .Select(b => new { b.Id, b.Name })
                 .ToList();
-            
+
             return Json(books);
         }
+        [HttpGet]
         [HttpGet]
         public IActionResult SearchMembers(string search)
         {
             var members = _context.Members
-                .Where(m => m.Name.Contains(search))
-                .Select(m => new {m.Id, m.Name})
+                .Where(m => m.Name.ToLower() == search.ToLower())
+                .Select(m => new { m.Id, m.Name })
                 .ToList();
+
             return Json(members);
         }
+
         [HttpGet]
         public IActionResult SearchBooks(string search)
         {
             var books = _context.Books
                 .Where(b => b.Name.Contains(search))
-                .Select(b => new{ b.Id, b.Name})
+                .Select(b => new { b.Id, b.Name })
                 .ToList();
 
             return Json(books);
+        }
+        public IActionResult CreateCheckout()
+        {
+            return View();
         }
         [HttpPost]
         public IActionResult CreateCheckout(int memberId, int bookId)
@@ -69,6 +83,20 @@ namespace LibraryManagementSystem.Controllers
 
             return Json(new { success = true });
         }
+        [HttpPost]
+        public IActionResult CheckIn(int id)
+        {
+            var checkout = _context.Checkouts.FirstOrDefault(c => c.Id == id);
 
-   }
+            if (checkout != null)
+            {
+                checkout.ReturnDate = DateTime.Now;
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+    }
 }

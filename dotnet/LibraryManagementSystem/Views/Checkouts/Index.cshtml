@@ -1,68 +1,64 @@
-@using System.Diagnostics.Eventing.Reader
+@model List<LibraryManagementSystem.Models.Checkout>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library System - Checkout</title>
+    <title>Library System - Checkouts</title>
     <link rel="stylesheet" href="/css/site.css">
 </head>
 
 <body>
-    <h1>Checkout</h1>
+
     <div class="search-bar">
-        <div class="search-bar-input">
-            <form id="findMember">
-                <input type="text" name="search" placeholder="Search user" required>
-                <button id="clear-btn" type="reset">Clear</button>
-                <input type="submit" value="Search">
-            </form>
-        </div>
-        <div class="search-bar-input">
-            <form id="findBook">
-                <input type="text" name="search" placeholder="Search book" required>
-                <button id="clear-btn" type="reset">Clear</button>
-                <input type="submit" value="Search">
-            </form>
-        </div>
+        <h1>Checked-out Books</h1>
         <div class="search-bar-add-btn">
-            <button id="checkoutBtn" disabled>Checkout</button>
+            <a href="/Checkouts/CreateCheckout"><button>Checkout</button></a>
         </div>
     </div>
+
     <div class="members-table">
+        @if (Model.Count > 0)
+        {
+            <div id="members-table-div">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ISBN</th>
+                            <th>Checked out by</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var c in Model)
+                        {
+                            <tr>
+                                <td>@c.Book?.Name</td>
+                                <td>@c.Book?.ISBN</td>
+                                <td>@c.Member?.Name</td>
+                                <td>
+                                    <form method="post" action="/Checkouts/CheckIn/@c.Id">
+                                        <button type="submit" class="action-btn">Check-in</button>
+                                    </form>
+                                </td>
+                            </tr>
 
-        <!-- Members Section -->
-        <div id="memberSection">
-            <h1 id="memberMsg" class="empty-msg"></h1>
-            <table id="memberTable">
-                <thead>
-                    <tr>
-                        <th>User name</th>
-                    </tr>
-                </thead>
-                <tbody id="memberTableBody"></tbody>
-            </table>
-        </div>
-
-
-        <!-- Books Section -->
-        <div id="bookSection">
-            <h1 id="bookMsg" class="empty-msg"></h1>
-            <table id="bookTable">
-                <thead>
-                    <tr>
-                        <th>Book name</th>
-                    </tr>
-                </thead>
-                <tbody id="bookTableBody"></tbody>
-            </table>
-        </div>
-
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div id="table-data-msg">
+                <h1>No checkout histories are available currently</h1>
+            </div>
+        }
 
     </div>
-
-    <script src="/js/checkouts.js"></script>
 </body>
 
 </html>
