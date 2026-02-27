@@ -1,0 +1,31 @@
+@model LibraryManagementSystem2_0.Models.Book
+@{
+    ViewData["Title"] = "Add book";
+}
+
+<div class="container-fluid">
+    <h2 class="mb-4">Add book</h2>
+
+    <div class="bg-light p-4" style="max-width: 600px;">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Title</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Isbn" class="form-label">ISBN</label>
+                <input asp-for="Isbn" class="form-control" />
+                <span asp-validation-for="Isbn" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Add</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

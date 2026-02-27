@@ -1,0 +1,51 @@
+@model IEnumerable<LibraryManagementSystem2_0.Models.CheckoutListItemViewModel>
+@{
+    ViewData["Title"] = "Checkouts";
+    var istZone = TimeZoneInfo.FindSystemTimeZoneById("Asia/Kolkata");
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Checked-out Books</h2>
+        <a asp-action="Create" class="btn btn-secondary">Checkout</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ISBN</th>
+                    <th>Checked out by</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                var checkoutIst = TimeZoneInfo.ConvertTimeFromUtc(
+                    DateTime.SpecifyKind(item.CheckedOutAt, DateTimeKind.Utc),
+                    istZone);
+
+                <tr>
+                    <td>@item.BookTitle</td>
+                    <td>@item.BookIsbn</td>
+                    <td>
+                        @item.MemberName<br />
+                        <small class="text-muted">
+                            @checkoutIst.ToString("dd-MM-yyyy") @checkoutIst.ToString("HH:mm:ss")
+                        </small>
+                    </td>
+                    <td>
+                        <form asp-action="CheckIn" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="btn btn-outline-secondary btn-sm">Check-in</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
