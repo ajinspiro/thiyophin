@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Signup Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NuPhones | Sign up</title>
+    <link rel="stylesheet" href="~/css/common/base.css" />
+    <link rel="stylesheet" href="~/css/accounts/signup.css" />
+</head>
+
+<body>
+    <div class="signup-container">
+        <h1>NuPhones | Sign up</h1>
+
+        <form class="signup-form">
+            <div class="form-group">
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname" name="firstname" />
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname" name="lastname" />
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone" name="phone" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm password</label>
+                <input type="text" id="confirm-password" name="confirm-password" />
+            </div>
+
+            <button type="submit" class="create-account-btn">Create new account</button>
+
+            <p class="already-text">
+                Already have an account?
+            </p>
+            <a asp-controller="Account" asp-action="Login" class="login-btn">Login</a>
+        </form>
+    </div>
+</body>
+
+</html>

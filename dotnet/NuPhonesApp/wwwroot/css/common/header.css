@@ -1,0 +1,63 @@
+/* Navbar */
+header {
+    background-color: var(--clr-accent);
+    color: var(--clr-card-white);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar .logo-container {
+    position: relative;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.user-btn {
+    background-color: white;
+    color: var(--clr-accent);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cart-icon {
+    display: grid;
+    place-items: center;
+    height: 30px;
+}
+
+.cart-icon>img {
+    width: 15px;
+    transform: scale(1.3);
+}

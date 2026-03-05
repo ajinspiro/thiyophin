@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Login Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NuPhones | Login</title>
+    <link rel="stylesheet" href="~/css/common/base.css" />
+    <link rel="stylesheet" href="~/css/accounts/login.css" />
+</head>
+
+<body>
+    <div class="login-container shadow">
+        <h1>NuPhones | Login</h1>
+        <form class="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+            <p class="forgot-password">
+                Forgot password? <a href="#">Click here</a>
+            </p>
+
+            <a asp-controller="Account" asp-action="Signup" class="create-account-btn">Create new account</a>
+        </form>
+
+    </div>
+</body>
+
+</html>

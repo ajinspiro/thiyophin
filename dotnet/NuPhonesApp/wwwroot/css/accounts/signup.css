@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container {
+    background: var(--clr-card-white);
+    width: 300px;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.signup-container h1 {
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    color: var(--clr-accent);
+    font-weight: 600;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 2px solid var(--clr-accent);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    outline: none;
+    background: #fff;
+}
+
+.create-account-btn {
+    background: var(--clr-accent);
+    color: var(--clr-card-white);
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.create-account-btn:hover {
+    background: var(--clr-accent-highlighted);
+}
+
+.already-text {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: var(--clr-black);
+    margin-bottom: 0;
+}
+
+.login-btn {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid var(--clr-accent);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #4829F1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background: #e8e4ff;
+}
