@@ -1,18 +1,8 @@
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["HideHeader"] = true;
     ViewData["Title"] = "Login Page";
 }
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NuPhones | Login</title>
-    <link rel="stylesheet" href="~/css/common/base.css" />
-    <link rel="stylesheet" href="~/css/accounts/login.css" />
-</head>
-
-<body>
     <div class="login-container shadow">
         <h1>NuPhones | Login</h1>
         <form class="login-form" method="post" asp-controller="Account" asp-action="Login">
@@ -41,6 +31,3 @@
         </form>
 
     </div>
-</body>
-
-</html>

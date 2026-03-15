@@ -1,47 +1,9 @@
 ﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Home Page";
 }
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NuPhones | Buy trending smartphones</title>
-    <link rel="stylesheet" href="~/css/common//base.css" />
-    <link rel="stylesheet" href="~/css/home/landing.css" />
-    <link rel="stylesheet" href="~/css/common/header.css" />
-</head>
-
-<body>
-    <header>
-        <div class="navbar">
-            <div class="logo-container">
-                <h1 class="logo">NuPhones</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Past Orders</a></li>
-                    @if (Context.Session.GetString("Username") != null)
-                    {
-                        <li><a href="/Home/Logout">Logout</a></li>
-                    }
-                    else
-                    {
-                        <li><a href="/Account/Login">Login</a></li>
-                    }
-                    <li>
-                        <button class="user-btn">
-                            @(ViewBag.Username != null ? ViewBag.Username : "USER")
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<div>
+    
     <div class="search-container">
         <input type="text" placeholder="search" />
     </div>
@@ -241,6 +203,4 @@
             </div>
         </section>
     </main>
-</body>
-
-</html>
+</div>
