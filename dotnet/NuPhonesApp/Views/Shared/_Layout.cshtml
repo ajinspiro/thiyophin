@@ -6,11 +6,7 @@
     <title>@ViewData["Title"] - NuPhonesApp</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/common/base.css" />
-    <link rel="stylesheet" href="~/css/common/header.css" />
-    <link rel="stylesheet" href="~/css/accounts/signup.css" />
-    <link rel="stylesheet" href="~/css/accounts/login.css" />
-    <link rel="stylesheet" href="~/css/home/landing.css" />
+    <link rel="stylesheet" href="~/css/site.bundle.css" />
 </head>
 <body>
     <div>
@@ -24,7 +20,7 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.bundle.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

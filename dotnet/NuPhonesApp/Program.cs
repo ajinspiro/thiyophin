@@ -7,6 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
+builder.Services.AddWebOptimizer(pipeline =>
+{
+    pipeline.AddCssBundle("/css/site.bundle.css",
+        "css/common/base.css",
+        "css/common/header.css",
+        "css/accounts/login.css",
+        "css/accounts/signup.css",
+        "css/home/landing.css");
+
+    pipeline.AddJavaScriptBundle("/js/site.bundle.js",
+        "js/site.js",
+        "js/home.js");
+});
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
@@ -20,13 +33,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Static files must come early
+app.UseWebOptimizer();
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseSession();
 
 app.UseAuthorization();
-
-app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
