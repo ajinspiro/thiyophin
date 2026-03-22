@@ -1,5 +1,7 @@
 using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NuPhonesApp.Data;
 using NuPhonesApp.Models;
 using NuPhonesApp.ViewModels;
@@ -43,7 +45,7 @@ namespace NuPhonesApp.Controllers
                 Phone = model.Phone,
                 Password = model.Password
             };
-            _context.Users.Add(user);
+            _context.Users1.Add(user);
             _context.SaveChanges();
 
             return RedirectToAction("Login");
@@ -52,8 +54,7 @@ namespace NuPhonesApp.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
-
+            var user = _context.Users1.FirstOrDefault(u => u.Username == username && u.Password == password);
             _logger.LogInformation("User : {User}", user?.Username);
             if (user != null)
             {
