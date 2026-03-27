@@ -15,7 +15,7 @@ public class SignupViewModel
 
     [Required]
     [StringLength(50)]
-    public string Username {get; set;}
+    public string UserName {get; set;}
 
     [Required]
     [EmailAddress]

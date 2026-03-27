@@ -5,12 +5,11 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace NuPhonesApp.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
        : base(options)
     {
     }
 
-    public DbSet<User> Users1 { get; set; }
 }
