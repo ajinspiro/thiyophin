@@ -1,37 +1,33 @@
 @{
-    @model NuPhonesApp.ViewModels.LoginViewModel
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["HideHeader"] = true;
     ViewData["Title"] = "Login Page";
 }
-<div class="login-container shadow">
-    <h1>NuPhones | Login</h1>
-    <form class="login-form" method="post" asp-controller="Account" asp-action="Login">
-        @Html.AntiForgeryToken()
+    <div class="login-container shadow">
+        <h1>NuPhones | Login</h1>
+        <form class="login-form" method="post" asp-controller="Account" asp-action="Login">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" />
+            </div>
 
-        <div class="form-group">
-            <label asp-for="UserName"></label>
-            <input asp-for="UserName" />
-            <span asp-validation-for="UserName"></span>
-        </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </div>
+            @if (ViewBag.Error != null)
+            {
+                <div class="error-message">
+                    @ViewBag.Error
+                </div>
+            }
+            <button type="submit" class="login-btn">Login</button>
+            <p class="forgot-password">
+                Forgot password? <a href="#">Click here</a>
+            </p>
 
-        <div class="form-group">
-            <label asp-for="Password"></label>
-            <input asp-for="Password" type="password" />
-            <span asp-validation-for="Password"></span>
-        </div>
+            <a asp-controller="Account" asp-action="Signup" class="create-account-btn">Create new account</a>
+        </form>
 
-        <div class="error-message">
-            @Html.ValidationSummary(false)
-        </div>
-
-        <button type="submit" class="login-btn">Login</button>
-
-        <p class="forgot-password">
-            Forgot password? <a href="#">Click here</a>
-        </p>
-
-        <a asp-controller="Account" asp-action="Signup" class="create-account-btn">Create new account</a>
-    </form>
-
-</div>
+    </div>

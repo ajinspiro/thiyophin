@@ -2,7 +2,6 @@ using Microsoft.Extensions.Options;
 using NuPhonesApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using NuPhonesApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,10 +21,12 @@ builder.Services.AddWebOptimizer(pipeline =>
         "js/site.js",
         "js/home.js");
 });
-
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
+builder.Services.AddIdentityCore<IdentityUser>().
+    AddRoles<IdentityRole>().
+    AddRoleManager<RoleManager<IdentityRole>>().
+    AddSignInManager<SignInManager<IdentityUser>>().
+    AddUserManager<UserManager<IdentityUser>>().
+    AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -49,7 +50,6 @@ app.UseRouting();
 
 app.UseSession();
 
-app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

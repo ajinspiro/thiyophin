@@ -1,20 +1,22 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace NuPhonesApp.ViewModels;
+namespace NuPhonesApp.Models;
 
-public class SignupViewModel
+public class User
 {
+    public int Id { get; set; }
+
     [Required]
-    [StringLength(50)]
+    [MaxLength(50)]
     public string FirstName {get; set;}
 
     [Required]
-    [StringLength(50)]
+    [MaxLength(50)]
     public string LastName {get; set;}
 
     [Required]
-    [StringLength(50)]
+    [MaxLength(50)]
     public string Username {get; set;}
 
     [Required]
@@ -26,11 +28,5 @@ public class SignupViewModel
     public string Phone {get; set;}
 
     [Required]
-    [MinLength(8)]
     public string Password {get; set;}
-
-    [Required]
-    [Compare("Password", ErrorMessage = "Password do not match")]
-    public string ConfirmPassword {get; set;}
-
 }
